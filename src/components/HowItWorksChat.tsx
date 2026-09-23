@@ -5,8 +5,6 @@ import { useEffect, useRef, type ReactNode } from 'react';
 
 // Delay between bubbles that appear at the same time.
 const STAGGER_MS = 140;
-// The first bubbles wait for the screen heading to fade in.
-const HEADING_LEAD_MS = 260;
 
 const asset = (name: string) => `${import.meta.env.BASE_URL}chat/${name}`;
 
@@ -63,18 +61,15 @@ export default function HowItWorksChat() {
     // by the sticky footer so a bubble pops as it clears the "Go to Campaign" button.
     const footer = document.querySelector<HTMLElement>('.screen__footer');
     const bottomInset = Math.round(window.innerHeight * 0.08 + (footer?.offsetHeight ?? 0));
-    let isFirstBatch = true;
     const io = new IntersectionObserver(
       (entries) => {
-        const lead = isFirstBatch ? HEADING_LEAD_MS : 0;
         // Bubbles that come into view together pop one after another, like a live chat.
         entries
           .filter((e) => e.isIntersecting)
           .forEach((e, i) => {
-            (e.target as HTMLElement).style.transitionDelay = `${lead + i * STAGGER_MS}ms`;
+            (e.target as HTMLElement).style.transitionDelay = `${i * STAGGER_MS}ms`;
             e.target.classList.add('in');
             io.unobserve(e.target);
-            isFirstBatch = false;
           });
       },
       { threshold: 0.35, rootMargin: `0px 0px -${bottomInset}px 0px` },

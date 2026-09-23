@@ -330,29 +330,6 @@ p {
   }
 }
 
-/* Last screen: heading, then the chat. Spacing on an 8px grid. */
-.complete {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.complete__title {
-  color: var(--color-ink);
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  text-align: center;
-  animation: fade-up 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .complete__title {
-    animation: none;
-  }
-}
-
 /* How-it-works chat (ported from the Polysocial home page). */
 .chat {
   display: flex;
@@ -459,10 +436,6 @@ p {
 @media (max-height: 740px) {
   .screen--scroll .screen__body {
     padding-block: 16px 8px;
-  }
-
-  .complete {
-    gap: 24px;
   }
 
   .msg--group-start {
