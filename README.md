@@ -23,6 +23,16 @@ npm run build
 
 Set the campaign link with an env var, e.g. `VITE_CAMPAIGN_URL=https://example.com/campaign npm run build`.
 
+## Deployment
+
+Every push to `main` builds the site and deploys it to GitHub Pages
+(`.github/workflows/deploy-pages.yml`). The live URL is
+https://ramithransika-srilanka.github.io/Campaign_onboarding/
+
+One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+To set the campaign link, add a repository variable `VITE_CAMPAIGN_URL`
+(**Settings → Secrets and variables → Actions → Variables**).
+
 ## Assets
 
 - `public/celeste-logo.png` – the Celeste logo on the splash screen (Figma node `329:949`).
