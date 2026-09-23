@@ -25,8 +25,7 @@ Set the campaign link with an env var, e.g. `VITE_CAMPAIGN_URL=https://example.c
 
 ## Assets
 
-- `public/celeste-logo.png` – the Celeste logo from the splash screen (Figma node `329:949`).
-  Until it is added, the splash shows a text wordmark fallback.
+- `public/celeste-logo.png` – the Celeste logo on the splash screen (Figma node `329:949`).
 
 ## Not wired up yet
 

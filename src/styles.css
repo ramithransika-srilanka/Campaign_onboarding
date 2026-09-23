@@ -163,23 +163,20 @@ p {
 
 /* Splash */
 .splash-logo {
+  /* Design centres the logo on the full screen, not the area above the footer. */
+  margin-top: 65px;
   align-self: center;
   width: 172px;
   height: 86px;
-  position: relative;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .splash-logo img {
-  position: absolute;
-  left: -0.09%;
-  top: -8.14%;
-  width: 100.18%;
-  height: 133.37%;
-  max-width: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .splash-logo__fallback {
