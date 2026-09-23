@@ -416,13 +416,6 @@ p {
   flex: none;
 }
 
-.chat-gif {
-  display: block;
-  width: 150px;
-  height: 150px;
-  border-radius: 20px 20px 6px 20px;
-  object-fit: cover;
-}
 
 @media (prefers-reduced-motion: reduce) {
   .msg {
@@ -440,10 +433,5 @@ p {
 
   .msg--group-start {
     margin-top: 12px;
-  }
-
-  .chat-gif {
-    width: 100px;
-    height: 100px;
   }
 }
