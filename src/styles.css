@@ -173,6 +173,28 @@ p {
   justify-content: center;
 }
 
+.splash-logo {
+  animation: logo-in 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.splash-logo--leaving {
+  animation: logo-out 400ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+@keyframes logo-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes logo-out {
+  to {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+}
+
 .splash-logo img {
   width: 100%;
   height: 100%;
@@ -230,4 +252,29 @@ p {
   font-weight: 500;
   line-height: 17px;
   text-align: center;
+}
+
+/* Welcome screen enters with a short staggered fade-up after the splash. */
+.welcome > * {
+  animation: fade-up 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.welcome > :nth-child(2) {
+  animation-delay: 90ms;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-logo,
+  .splash-logo--leaving,
+  .welcome > * {
+    animation-duration: 1ms;
+    animation-delay: 0ms;
+  }
 }
