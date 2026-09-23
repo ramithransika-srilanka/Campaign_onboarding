@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Splash from './screens/Splash';
 import Welcome from './screens/Welcome';
 import PhoneNumber from './screens/PhoneNumber';
@@ -8,6 +8,11 @@ type Step = 'splash' | 'welcome' | 'phone' | 'complete';
 
 export default function App() {
   const [step, setStep] = useState<Step>('splash');
+
+  // Each step starts at the top (the last screen scrolls).
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [step]);
 
   return (
     <main className="app">

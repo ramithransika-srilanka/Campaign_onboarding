@@ -44,7 +44,7 @@ p {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 0 var(--page-gutter) calc(50px + env(safe-area-inset-bottom));
+  padding: 0 var(--page-gutter);
 }
 
 .screen__body {
@@ -54,8 +54,27 @@ p {
   justify-content: center;
 }
 
+.screen__footer {
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+}
+
 .screen__bottom {
   margin-bottom: 12px;
+}
+
+/* Scrolling screen: content from the top, footer (CTA + Powered by) stays pinned. */
+.screen--scroll .screen__body {
+  justify-content: flex-start;
+  padding-block: 40px 24px;
+}
+
+.screen--scroll .screen__footer {
+  position: sticky;
+  bottom: 0;
+  margin: 0 calc(-1 * var(--page-gutter));
+  padding-inline: var(--page-gutter);
+  padding-top: 16px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 16px);
 }
 
 .powered-by {
@@ -307,5 +326,107 @@ p {
   .welcome > * {
     animation-duration: 1ms;
     animation-delay: 0ms;
+  }
+}
+
+/* How-it-works chat (ported from the Polysocial home page). */
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  /* Home page uses a 16px gutter for the chat. */
+  margin: 0 calc(16px - var(--page-gutter));
+}
+
+.msg {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.3s ease-out, transform 0.44s cubic-bezier(0.34, 1.42, 0.6, 1);
+}
+
+.msg-r {
+  justify-content: flex-end;
+  transform: translateY(10px) scale(0.8);
+  transform-origin: bottom right;
+}
+
+.msg-l {
+  justify-content: flex-start;
+  transform: translateY(10px) scale(0.8);
+  transform-origin: bottom left;
+}
+
+.msg.in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.msg--group-start {
+  margin-top: 18px;
+}
+
+.bubble {
+  max-width: 250px;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.bubble--wide {
+  max-width: 260px;
+}
+
+.bubble--r {
+  background: #e7e8fd;
+  color: #1b1b2e;
+  border-radius: 20px 20px 6px 20px;
+}
+
+.bubble--l {
+  background: #ececec;
+  color: #121212;
+}
+
+.bubble--l.bubble--tail {
+  border-radius: 20px 20px 20px 6px;
+}
+
+.bubble a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.chat-avatar {
+  display: block;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  object-fit: cover;
+  flex: none;
+}
+
+.chat-avatar-space {
+  width: 34px;
+  flex: none;
+}
+
+.chat-gif {
+  display: block;
+  width: 150px;
+  height: 150px;
+  border-radius: 20px 20px 6px 20px;
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .msg {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
