@@ -97,18 +97,6 @@ export default function HowItWorksChat() {
           {m.side === 'r' && <UserAvatar />}
         </div>
       ))}
-      <div className="msg msg-r msg--group-start">
-        <picture>
-          <img
-            className="chat-gif"
-            src={asset('payout.webp')}
-            alt="Animated illustration celebrating a creator payout"
-            width={320}
-            height={320}
-          />
-        </picture>
-        <UserAvatar />
-      </div>
     </div>
   );
 }
