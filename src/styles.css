@@ -64,7 +64,8 @@ p {
 
 /* Scrolling screen: content from the top, footer (CTA + Powered by) stays pinned. */
 .screen--scroll .screen__body {
-  justify-content: flex-start;
+  /* Centred when it fits on one screen; grows and scrolls on very short phones. */
+  justify-content: center;
   padding-block: 40px 24px;
 }
 
@@ -428,5 +429,21 @@ p {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/* Short phones (e.g. iPhone SE): tighten the chat so the last screen still fits without scrolling. */
+@media (max-height: 740px) {
+  .screen--scroll .screen__body {
+    padding-block: 12px 8px;
+  }
+
+  .msg--group-start {
+    margin-top: 12px;
+  }
+
+  .chat-gif {
+    width: 100px;
+    height: 100px;
   }
 }

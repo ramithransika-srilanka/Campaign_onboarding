@@ -1,8 +1,7 @@
 import { useEffect, useRef, type ReactNode } from 'react';
-import { CAMPAIGN_URL } from '../config';
 
-// Ported from the "It's very uncomplicated." section of the Polysocial home page
-// (Polysocial-mobile/index.html #chat), without the heading.
+// Chat bubbles and pop-in animation ported from the "It's very uncomplicated." section
+// of the Polysocial home page (Polysocial-mobile/index.html #chat), with campaign copy.
 
 // Delay between bubbles that appear at the same time.
 const STAGGER_MS = 140;
@@ -35,27 +34,15 @@ type Message = {
   wide?: boolean;
 };
 
+// A creator (right) asks Polysocial (left) how the campaign works.
 const MESSAGES: Message[] = [
   { side: 'r', text: 'How does it work?', groupStart: true, groupEnd: true },
-  { side: 'l', text: 'Its so simple', groupStart: true },
-  { side: 'l', text: 'There are many open campaigns created by brands in our platform', wide: true },
-  { side: 'l', text: 'You can choose which campaign you are interested in', groupEnd: true, wide: true },
-  { side: 'r', text: 'How can I know what to create?', groupStart: true, groupEnd: true, wide: true },
-  { side: 'l', text: 'All the guidelines are mentioned inside the campaign', groupStart: true, wide: true },
-  { side: 'l', text: 'Create the content and upload in your profile and submit the link', groupEnd: true, wide: true },
-  { side: 'r', text: 'Thats it?', groupStart: true, groupEnd: true },
-  { side: 'l', text: 'Yep.', groupStart: true },
-  { side: 'l', text: 'Once the content is approved, you can start earning.', wide: true },
-  { side: 'l', text: 'You earn based on the reach you get for your content', wide: true },
-  {
-    side: 'l',
-    text: (
-      <>
-        Click <a href={CAMPAIGN_URL}>here</a> to start
-      </>
-    ),
-    groupEnd: true,
-  },
+  { side: 'l', text: 'Go to the campaign', groupStart: true },
+  { side: 'l', text: 'Create content as mentioned in the campaign', wide: true },
+  { side: 'l', text: 'Submit your content', groupEnd: true },
+  { side: 'r', text: 'How much can I earn?', groupStart: true, groupEnd: true },
+  { side: 'l', text: 'Earn up to Rs. 40,000', groupStart: true },
+  { side: 'l', text: "You're paid based on the reach your content earns", groupEnd: true, wide: true },
 ];
 
 export default function HowItWorksChat() {
