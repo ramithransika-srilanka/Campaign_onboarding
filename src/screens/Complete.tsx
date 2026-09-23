@@ -12,7 +12,10 @@ export default function Complete() {
         </a>
       }
     >
-      <HowItWorksChat />
+      <div className="complete">
+        <h1 className="complete__title">Join our community</h1>
+        <HowItWorksChat />
+      </div>
     </Screen>
   );
 }
