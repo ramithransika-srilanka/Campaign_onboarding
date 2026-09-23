@@ -32,6 +32,8 @@ type Message = {
   /** Last bubble of a group shows the avatar and a tail corner. */
   groupEnd?: boolean;
   wide?: boolean;
+  /** Keep a short line from wrapping one word onto its own line. */
+  oneLine?: boolean;
 };
 
 // A creator (right) asks Polysocial (left) how the campaign works.
@@ -41,7 +43,7 @@ const MESSAGES: Message[] = [
   { side: 'l', text: 'Create content as mentioned in the campaign', wide: true },
   { side: 'l', text: 'Submit your content', groupEnd: true },
   { side: 'r', text: 'How much can I earn?', groupStart: true, groupEnd: true },
-  { side: 'l', text: 'Earn up to Rs. 40,000', groupStart: true },
+  { side: 'l', text: 'Earn up to Rs. 40,000 per content', groupStart: true, oneLine: true },
   { side: 'l', text: "You're paid based on the reach your content earns", groupEnd: true, wide: true },
 ];
 
@@ -90,6 +92,7 @@ export default function HowItWorksChat() {
               `bubble--${m.side}`,
               m.groupEnd ? 'bubble--tail' : '',
               m.wide ? 'bubble--wide' : '',
+              m.oneLine ? 'bubble--one-line' : '',
             ].join(' ')}
           >
             {m.text}
