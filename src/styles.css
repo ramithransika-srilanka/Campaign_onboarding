@@ -382,6 +382,11 @@ p {
   max-width: 260px;
 }
 
+.bubble--one-line {
+  max-width: none;
+  white-space: nowrap;
+}
+
 .bubble--r {
   background: #e7e8fd;
   color: #1b1b2e;
