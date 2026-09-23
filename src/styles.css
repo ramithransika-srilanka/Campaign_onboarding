@@ -376,6 +376,8 @@ p {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.35;
+  /* Avoid a single word dangling on the last line. */
+  text-wrap: pretty;
 }
 
 .bubble--wide {

@@ -44,7 +44,7 @@ const MESSAGES: Message[] = [
   { side: 'l', text: 'Submit your content', groupEnd: true },
   { side: 'r', text: 'How much can I earn?', groupStart: true, groupEnd: true },
   { side: 'l', text: 'Earn up to Rs. 40,000 per content', groupStart: true, oneLine: true },
-  { side: 'l', text: "You're paid based on the reach your content earns", groupEnd: true, wide: true },
+  { side: 'l', text: 'You get paid based on the reach of your content, at the end of the campaign', groupEnd: true, wide: true },
 ];
 
 export default function HowItWorksChat() {
