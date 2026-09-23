@@ -17,7 +17,7 @@ export default function Splash({ onDone }: { onDone: () => void }) {
           <span className="splash-logo__fallback">CELESTE</span>
         ) : (
           <img
-            src="/celeste-logo.png"
+            src={`${import.meta.env.BASE_URL}celeste-logo.png`}
             alt="Celeste"
             onError={() => setLogoMissing(true)}
           />
